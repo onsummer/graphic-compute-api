@@ -1,4 +1,5 @@
 import fastify from "fastify"
+import { gpRoutes } from "./router/gp/index.js"
 
 const app = fastify({
   logger: true
@@ -9,6 +10,7 @@ app.get('/', async (request, reply) => {
     msg: 'Hello, Point.'
   }
 })
+app.register(gpRoutes)
 
 const start = async () => {
   try {
